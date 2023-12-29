@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/consumer-app-services/!svn/ver/63/controllers
+END
+get_city.js
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/consumer-app-services/!svn/ver/2/controllers/get_city.js
+END
+registration_check.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/consumer-app-services/!svn/ver/2/controllers/registration_check.js
+END
+login.js
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/consumer-app-services/!svn/ver/53/controllers/login.js
+END
+ss_send_start_command.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/consumer-app-services/!svn/ver/46/controllers/ss_send_start_command.js
+END
+add_complaint_consumer.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/consumer-app-services/!svn/ver/2/controllers/add_complaint_consumer.js
+END
+registration.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/consumer-app-services/!svn/ver/2/controllers/registration.js
+END
+user_account_delete.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/consumer-app-services/!svn/ver/2/controllers/user_account_delete.js
+END
+add_service_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/consumer-app-services/!svn/ver/2/controllers/add_service_details.js
+END
+get_transaction_response_event_info.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/consumer-app-services/!svn/ver/34/controllers/get_transaction_response_event_info.js
+END
+get_payment_access2.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/consumer-app-services/!svn/ver/48/controllers/get_payment_access2.js
+END
+get_state.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/consumer-app-services/!svn/ver/2/controllers/get_state.js
+END
+get_apk_version.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/consumer-app-services/!svn/ver/2/controllers/get_apk_version.js
+END
+get_vehicle_details2_consumer.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/consumer-app-services/!svn/ver/2/controllers/get_vehicle_details2_consumer.js
+END
+get_cabin_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/consumer-app-services/!svn/ver/31/controllers/get_cabin_details.js
+END
+list_ss_log.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/consumer-app-services/!svn/ver/66/controllers/list_ss_log.js
+END
+change_password_consumer.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/consumer-app-services/!svn/ver/2/controllers/change_password_consumer.js
+END
+get_user_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/consumer-app-services/!svn/ver/2/controllers/get_user_details.js
+END
+get_vehicle_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/consumer-app-services/!svn/ver/2/controllers/get_vehicle_details.js
+END
+user_wallet_check.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/consumer-app-services/!svn/ver/40/controllers/user_wallet_check.js
+END
+list_swapping_station.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/consumer-app-services/!svn/ver/42/controllers/list_swapping_station.js
+END
+list_complaint_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/consumer-app-services/!svn/ver/2/controllers/list_complaint_details.js
+END
+get_user_wallet_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/consumer-app-services/!svn/ver/67/controllers/get_user_wallet_details.js
+END
+get_dealer.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/consumer-app-services/!svn/ver/2/controllers/get_dealer.js
+END
+get_payment_access.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/consumer-app-services/!svn/ver/37/controllers/get_payment_access.js
+END
+get_swapping_station_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/consumer-app-services/!svn/ver/52/controllers/get_swapping_station_details.js
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/consumer-app-services/!svn/ver/2/controllers/index.html
+END
+swapping_station_qr_scan.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/consumer-app-services/!svn/ver/59/controllers/swapping_station_qr_scan.js
+END
+list_service_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/consumer-app-services/!svn/ver/2/controllers/list_service_details.js
+END
+update_consumer_feedback.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/consumer-app-services/!svn/ver/2/controllers/update_consumer_feedback.js
+END
+get_transaction_response.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/consumer-app-services/!svn/ver/27/controllers/get_transaction_response.js
+END
