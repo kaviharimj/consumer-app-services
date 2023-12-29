@@ -45,6 +45,7 @@ module.exports.uploadMultipleImage=async(req,res)=>{
   var vehicle_id = req.body.vehicle_id;
 
   var validation_status = 1;  
+  console.log("test");
 
   if(api_key==undefined || api_key=="undefined" ) api_key='';
   if(user_id==undefined || user_id=='undefined') user_id='';
