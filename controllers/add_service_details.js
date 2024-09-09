@@ -89,10 +89,7 @@ var transporter = nodemailer.createTransport({
                         if(rows_U[0].status == 1){
                             var queryString_VD2= "select * from vehicle_details2  where vehicle_id='"+vehicle_id+"'  "; 
                             con.query(queryString_VD2, function (err_VD2, rows_VD2) { 
-                            
-                          
-
-                            var queryString_D= "select auto_increment_service_suffix,dealer_prefix from dealer  where dealer_id='"+service_planned_dealer_id+"'  "; 
+                            var queryString_D= "select auto_increment_service_suffix,dealer_prefix,billing_state from dealer  where dealer_id='"+service_planned_dealer_id+"'  "; 
                             con.query(queryString_D, function (err_D, rows_D) { 
                                // cononsole.log(rows_D);
                                 const today = new Date();
@@ -112,7 +109,13 @@ var transporter = nodemailer.createTransport({
 
                                var queryString_D_V2 ="UPDATE dealer SET auto_increment_service_suffix = '"+suffix+"' where dealer_id='"+service_planned_dealer_id+"' ";
                                con.query(queryString_D_V2, function (err_D_V2, rows_D_V2) {    
-
+                                 
+                                
+                                
+                                var queryString_D_V3 ="SELECT  email_id FROM users  WHERE user_type IN (28) AND company_id='"+rows_VD2[0].company_id+"'  AND service_state_id ='"+rows_D[0].billing_state+"' AND status=1   ";
+                                con.query(queryString_D_V3, function (err_D_V3, rows_D_V3) {    
+                             
+                              
                                 //send mail
                                 var mail_content='';
 
@@ -141,8 +144,8 @@ var transporter = nodemailer.createTransport({
                                console.log(rows_U[0].email_id);//cc
                                const mailOptions = {
                                 from: 'support@bncmotors.in', // Sender address   																  
-                                to: ''+rows_U[0].dealer_email+' ', // List of recipients
-                               cc:'meyyanathan.r@bncmotors.in,kavitha.s@anav.bike,sathishkumar.a@anav.bike,priyadarshini.s@bncmotors.in,'+rows_U[0].email_id+'',//rows_U[0].email_id
+                                to: ''+rows_U[0].dealer_email+',service@bncmotors.in,'+rows_D_V3[0].email_id+' ', // List of recipients
+                               cc:'meyyanathan.r@bncmotors.in,kavitha.s@anav.bike,sathishkumar.a@anav.bike,'+rows_U[0].email_id+'',//rows_U[0].email_id
                               // to:'kavitha.s@anav.bike',
                               subject: "Service "+service_id+" has been raised by "+rows_U[0].name+" ", // Subject line
                               html: 'Dear Sir/Madam, <br><br> Following are the details:<br><br>  '+mail_content+' ', // Plain text body
@@ -161,6 +164,7 @@ var transporter = nodemailer.createTransport({
                                 //res.send(res_arr);
                                });                            
                             });
+                        });
                             });  
                         });                          
                         } else {

@@ -59,7 +59,6 @@ module.exports.get_vehicle_details=function(req,res){
 										var min = Math.floor(bal_time - (hours * 60)); 
 										var charging_hrs= 'ET: '+hours +' hr '+min + ' mins'; 
 										//console.log(charging_hrs);
-
 										rows_DD[0].remaining_charge_time = charging_hrs;
 									} else{
 										rows_DD[0].remaining_charge_time = 'Battery Power';

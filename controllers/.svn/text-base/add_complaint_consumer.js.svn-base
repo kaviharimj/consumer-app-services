@@ -75,7 +75,7 @@ module.exports.uploadMultipleImage=async(req,res)=>{
       validation_status = 0;
   }
   else if(req.files.length < 1) {											/* 20290929: Mathavan need to fix the error in his code as even if we upload 1 image, it is not displaying in the app above Submit button. One fixed, need to change as 1 below */
-      res_arr = { status: '0', message: 'Please upload atleast 2 image' };
+      res_arr = { status: '0', message: 'Please upload atleast 2 images' };
       res.send(res_arr);
       validation_status = 0;
   } else if(req.files.length > 3) {
@@ -116,7 +116,7 @@ if (validation_status) {
                       con.query(queryString_VD2, function (err_VD2, rows_VD2) {                      
                     
                      if (rows_VD2.length > 0) {
-                          var queryString_D= "select auto_increment_complaint_suffix,dealer_prefix from dealer where dealer_id='"+rows_VD2[0].dealer_id+"'  "; 
+                          var queryString_D= "select auto_increment_complaint_suffix,dealer_prefix,billing_state from dealer where dealer_id='"+rows_VD2[0].dealer_id+"'  "; 
                           con.query(queryString_D, function (err_D, rows_D) {                           
                             const today = new Date();
                        //   console.log(today);
@@ -157,6 +157,10 @@ if (validation_status) {
                              var queryString_D_V2 ="UPDATE dealer SET auto_increment_complaint_suffix = '"+suffix+"' where dealer_id='"+rows_VD2[0].dealer_id+"' ";
                          con.query(queryString_D_V2, function (err_D_V2, rows_D_V2) {
                        
+                          var queryString_D_V3 ="SELECT  email_id FROM users  WHERE user_type IN (28) AND company_id='"+rows_VD2[0].company_id+"'  AND service_state_id ='"+rows_D[0].billing_state+"' AND status=1   ";
+                          con.query(queryString_D_V3, function (err_D_V3, rows_D_V3) {    
+                    
+
                           var mail_content='';
 
                           mail_content +='<table width="80%" align="left" border="0" align="center">';
@@ -183,33 +187,40 @@ if (validation_status) {
                           
                         //  console.log(rows_U[0].dealer_email);//to
                          // console.log(rows_U[0].email_id);//cc
-                   
+                         
+                      
                          const mailOptions = {
                           from: 'support@bncmotors.in', // Sender address
-                          to: ''+rows_U[0].dealer_email+'', // List of recipients
+                        //  to: ''+rows_U[0].dealer_email+'', // List of recipients
+                          to: ''+rows_U[0].dealer_email+',service@bncmotors.in,'+rows_D_V3[0].email_id+' ', // List of recipients
+                            
                           //to:'kavitha.s@anav.bike',
-                          cc:'meyyanathan.r@bncmotors.in,sureshdev@bncmotors.in,arn@bncmotors.in,swetha.s@bncmotors.in,'+rows_U[0].email_id+'',
-                          //cc: 'sathishkumar.a@anav.bike,swetha.s@bncmotors.in',
+                          cc:'meyyanathan.r@bncmotors.in,sureshdev@bncmotors.in,arn@bncmotors.in,kavitha.s@bncmotors.in,'+rows_U[0].email_id+'',
+                        
+                       // console.log(FOR TESTING. TO CHECK MAIL SENDING);
                           subject: "Complaint "+complaint_id+" has been raised by "+rows_U[0].name+" ", // Subject line
                           html: 'Dear Sir/Madam, <br><br> Following are the details:<br><br>  '+mail_content+' ', // Plain text body
                      };
-                          // transporter.sendMail(mailOptions, function(err, info) {
-                          //     if (err) {
-                          //       res_arr = { status: 0, message: 'Could not able to send mail' };
-                          //       res.send(res_arr);
-                          //     } else {
-                          //       res_arr = { status: 1, message: 'Complaint posted successfully and a mail has been sent to corresponding Dealer.' };
-                          //       res.send(res_arr);
-                          //     }
-                          // });
-                          res_arr = { status: 1, message: 'Complaint posted successfully and a mail has been sent to corresponding Dealer.' };
-                           res.send(res_arr);
+
+                  
+                          transporter.sendMail(mailOptions, function(err, info) {
+                              if (err) {
+                                res_arr = { status: 0, message: 'Could not able to send mail' };
+                                res.send(res_arr);
+                              } else {
+                                res_arr = { status: 1, message: 'Complaint posted successfully and a mail has been sent to corresponding Dealer.' };
+                                res.send(res_arr);
+                              }
+                          });
+                          // res_arr = { status: 1, message: 'Complaint posted successfully and a mail has been sent to corresponding Dealer.' };
+                          //  res.send(res_arr);
 
 
 
                        });                            
                       });
                       });  
+                    });  
                   });
                   }else{
                       res_arr = { status: 0, message: 'Sorry. Vehicle Number not available in Database' };

@@ -84,7 +84,7 @@ module.exports.user_wallet_check =
                                     res_arr = { status: 0, message: "No Details Found" };
                                     res.send(res_arr);
                                 }
-                        });   //  Cabin list
+                        });   //  Cabin list 
 
                               //////============================================================================/////// 
 

@@ -6,8 +6,7 @@ module.exports.get_swapping_station_details =function (req, res) {
     var user_id = req.body.user_id;
 	var imei = req.body.imei;
 	
-    var validation_status = 1;
-	
+    var validation_status = 1;	
 	if (api_key == undefined || api_key == "undefined") api_key = '';
     if (user_id == undefined || user_id == 'undefined') user_id = '';
 	if (imei == undefined || imei == 'undefined') imei = '';
@@ -45,11 +44,11 @@ module.exports.get_swapping_station_details =function (req, res) {
 				con.query(queryString_U, function (err_U, rows_U) {
 					if (rows_U.length > 0) {
 						if(rows_U[0].status == 1) {
-							var queryString_SS = "SELECT id, swapping_station_number, station_name, battery_mode_status, (CASE WHEN battery_mode_status = '1' THEN '1-Swapping Initiated' WHEN battery_mode_status = '2' THEN '1-Battery Accepted' WHEN battery_mode_status = '3' THEN '1-Processing' WHEN battery_mode_status = '4' THEN '1-Collect Your Battery' WHEN battery_mode_status = '5' THEN '1-Handover Ends' WHEN battery_mode_status = '6' THEN '1-Transaction Completed' WHEN battery_mode_status = '7' THEN '0-Invalid Battery Kept' WHEN battery_mode_status = '8' THEN '0-Failed To Open Empty Door' WHEN battery_mode_status = '9' THEN '0-Failed To Open Withdrawal Door' WHEN battery_mode_status = '10' THEN '0-Time Out' WHEN battery_mode_status = '11' THEN '0-Insufficient amount in your wallet' WHEN battery_mode_status = '12' THEN '0-Unauthorised Access' WHEN battery_mode_status = '13' THEN '1-Payment Processing' ELSE '' END) AS battery_mode_status_val, battery_id_no_accp FROM swapping_station WHERE 1=1 AND imei = '"+imei+"' limit 0,1";
+							var queryString_SS = "SELECT id, swapping_station_number, station_name, battery_mode_status, (CASE WHEN battery_mode_status = '1' THEN '1-Swapping Initiated' WHEN battery_mode_status = '2' THEN '1-Battery Accepted' WHEN battery_mode_status = '3' THEN '1-Processing' WHEN battery_mode_status = '4' THEN '1-Collect Your Battery' WHEN battery_mode_status = '5' THEN '1-Handover Ends' WHEN battery_mode_status = '6' THEN '1-Transaction Completed' WHEN battery_mode_status = '7' THEN '0-Invalid Battery Kept' WHEN battery_mode_status = '8' THEN '0-Failed To Open Empty Door' WHEN battery_mode_status = '9' THEN '0-Failed To Open Withdrawal Door' WHEN battery_mode_status = '10' THEN '0-Time Out' WHEN battery_mode_status = '11' THEN '0-Insufficient amount in your wallet' WHEN battery_mode_status = '12' THEN '0-Unauthorised Access' WHEN battery_mode_status = '13' THEN '1-Payment Processing' WHEN battery_mode_status = '14' THEN '0-lOW-SOC' WHEN battery_mode_status = '15' THEN '0-Please Collect Your Battery' WHEN battery_mode_status = '16' THEN '0-Sorry to proceed as batteries are available with low SOC. Collect your battery'    ELSE '' END) AS battery_mode_status_val, battery_id_no_accp FROM swapping_station WHERE 1=1 AND imei = '"+imei+"' limit 0,1";
 							con.query(queryString_SS, function (err_SS, rows_SS) {
 								if(rows_SS.length > 0) {
-									if(rows_SS[0].battery_mode_status=='3') {		//If Battery Handover Planned, then send Pay done/fail status
-										if(rows_U[0].wallet_amount >= '250') {
+									if(rows_SS[0].battery_mode_status=='3') {		//If Battery Handover Planned, then send Pay done/fail status. 20231217: Included x to avoid below case as Srihari sent PAYDONE in his code
+										if(rows_U[0].wallet_amount >= '250x') { 	// 20240123 AS OF NOW WE INCLUDED X AT THE END TO AVOID PAY DONE FROM OUR END
 											//Proceed if he have sufficient amount in wallet
 											//var queryString_VDC = "SELECT VD.vehicle_id,VD.company_id,VD.branch_id,VD.dealer_id,VD.retailer_id,VD.customer_id,VD.vehicle_model_id,VD.vehicle_model_name,VD.vehicle_variant_id,VD.vehicle_variant_name,VD.vehicle_color_id,VD.vehicle_color_name,VD.vehicle_price_id,VD.vehicle_model_code,VD.chassis_number,VD.imei,VD.registration_number,C.customer_id, C.customer_name, C.mobile_number, C.email_id FROM vehicle_details2 VD, customer C, users U  WHERE (VD.battery_serial_number = '"+rows_SS[0].battery_id_no_accp+"' OR VD.battery_serial_number2 = '"+rows_SS[0].battery_id_no_accp+"') AND VD.customer_id = C.customer_id AND C.customer_id = U.customer_id AND U.user_id = '"+user_id+"' LIMIT 0,1;";
 											var queryString_VDC = "select * from vehicle_details2 where 1=1 limit 0,1";
@@ -125,7 +124,12 @@ module.exports.get_swapping_station_details =function (req, res) {
 												 });	
 												}
 											});
-										} else {									//Deny if he don't have sufficient amount in wallet
+										}
+										else if(rows_U[0].wallet_amount >= '52') {
+												res_arr = { status: 1, message: 'Sufficient amount found in wallet to proeed', data: rows_SS};
+												res.send(res_arr);
+										 }
+										else {									//Deny if he don't have sufficient amount in wallet
 										   command = '$PAY_FAIL#';
 										   client.on('connect', () => {
 											root_topic_val = '/bnc/12/1.0/'+imei+'/control';
@@ -161,6 +165,8 @@ module.exports.get_swapping_station_details =function (req, res) {
 											client.end();
 										 });
 								}
+  										
+								
 								} else {
 									res_arr = { status: 1, message: 'Details Found', data: rows_SS };
 									res.send(res_arr);

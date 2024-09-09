@@ -1,5 +1,5 @@
 var con = require('./../config_consumer');
-var geodist=require('geodist');
+var geodist=require('geodist');//2.list out the cabin in particular ss
 var mqtt = require('mqtt');
 
 module.exports.get_cabin_details =

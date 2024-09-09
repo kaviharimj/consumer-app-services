@@ -33,7 +33,7 @@ if(api_key=='') {
                 var queryString_SelU = "SELECT  uname FROM users WHERE uname = '"+mobile_number+"' AND user_type='"+user_type+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"' ";
                 con.query(queryString_SelU,function(err_SelU,rows_SelU) {           
                 if(rows_SelU.length == '0') { // check if customer alredy exist in user table 
-                var queryString_C = "SELECT customer_id,customer_name,customer_type,status FROM customer WHERE mobile_number = '"+mobile_number+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"' ";             
+                var queryString_C = "SELECT customer_id,customer_name,customer_type,status FROM customer WHERE mobile_number = '"+mobile_number+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"' order by customer_type DESC LIMIT 0,1";             
                 con.query(queryString_C,function(err_C,rows_C) {                     
         
                     if(rows_C.length > 0) { //case 2.check if mobile no already exist 

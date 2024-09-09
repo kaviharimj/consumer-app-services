@@ -60,7 +60,8 @@ if(api_key=='') {
                     var queryString_SelU = "SELECT uname FROM users WHERE uname = '"+mobile+"' AND user_type='"+user_type+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"' ";
                     con.query(queryString_SelU,function(err_SelU,rows_SelU) {  
                         if(rows_SelU.length == '0') {										//case 3. If mobile number not exists, then proceed
-                            var queryString_C = "SELECT company_id,branch_id,dealer_id,customer_id,customer_name,mobile_number,billing_address,billing_city,billing_state,billing_pincode,phone_number,email_id,customer_type,otp,status FROM customer WHERE mobile_number = '"+mobile+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"'";
+                            var queryString_C = "SELECT company_id,branch_id,dealer_id,customer_id,customer_name,mobile_number,billing_address,billing_country_id,billing_country_name,billing_city,billing_state,billing_pincode,phone_number,email_id,customer_type,otp,status FROM customer WHERE mobile_number = '"+mobile+"' AND company_id = '"+rows_A[0].company_id+"' AND branch_id ='"+rows_A[0].branch_id+"' order by customer_type DESC LIMIT 0,1";
+                        console.log(queryString_C);
                             con.query(queryString_C,function(err_C,rows_C) {  
 							if(rows_C.length > 0) { 										// case 4. check if customer exists
 								if(rows_C[0].customer_type=='2') {							// case 5: Check if customer is confirmed customer [After invoice only he will becore conofirmed customer [in DMS]]
@@ -76,12 +77,18 @@ if(api_key=='') {
 											var city=rows_C[0].billing_city;
 											var pincode=rows_C[0].billing_pincode;
 											var state_id=rows_C[0].billing_state;
+
+                                            var country_id=rows_C[0].billing_country_id;
+                                            var country_name=rows_C[0].billing_country_name;
+
+                                           
+
 											var phone_number=rows_C[0].phone_number;
 											var mobile_number=mobile; 
 											var email_id=rows_C[0].email_id; 
 											var status='1'; 
 											var created_by=0;
-											var queryString_InsUser="INSERT INTO users SET company_id = '"+company_id+"',branch_id='"+branch_id+"',dealer_id='"+dealer_id+"',customer_id='"+customer_id+"',user_type='"+user_type+"',uname='"+uname+"',password='"+enc_password+"',name='"+name+"',address='"+address+"',city='"+city+"',pincode='"+pincode+"',state_id='"+state_id+"',phone_number='"+phone_number+"',mobile_number='"+mobile_number+"',email_id='"+email_id+"',status='"+status+"',created_datetime=NOW(),p_proj='"+p_proj+"'";
+											var queryString_InsUser="INSERT INTO users SET company_id = '"+company_id+"',branch_id='"+branch_id+"',dealer_id='"+dealer_id+"',customer_id='"+customer_id+"',user_type='"+user_type+"',uname='"+uname+"',password='"+enc_password+"',name='"+name+"',address='"+address+"',city='"+city+"',pincode='"+pincode+"',state_id='"+state_id+"',country_id='"+country_id+"',country_name='"+country_name+"',phone_number='"+phone_number+"',mobile_number='"+mobile_number+"',email_id='"+email_id+"',status='"+status+"',created_datetime=NOW(),p_proj='"+p_proj+"'";
 											con.query(queryString_InsUser,function(err_InsUser,rows_Ins_User) {
 												res_arr = { status: 1, message: 'Registration done successfully'};
 												res.send(res_arr);  

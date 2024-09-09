@@ -46,7 +46,8 @@ module.exports.login=function(req,res){
                     con.query(queryString_UT,function(err_UT,rows_UT) { 
                     var user_type=rows_UT[0].id; 
 
-                    var queryString_U = "select user_id,company_id,branch_id,dealer_id,customer_id,name,email_id,mobile_number,status from users where uname = '"+uname+"' AND password = '"+password1+"' AND user_type ='"+user_type+"'";                
+                    var queryString_U = "select user_id,company_id,branch_id,dealer_id,customer_id,name,email_id,mobile_number,status,country_id from users where uname = '"+uname+"' AND password = '"+password1+"' AND user_type ='"+user_type+"'";                
+              //   console.log(queryString_U);
                     con.query(queryString_U,function(err_U,rows_U) {                                      
                         if(rows_U.length > 0) {
                             if(rows_U[0].status == '1') {                             
@@ -54,14 +55,46 @@ module.exports.login=function(req,res){
                                     con.query(queryString_U_V1,function(err_U_V1,rows_U_V1) {    
                                       //  res_arr = { status: 1, message: 'Updated Successful', data:rows_U_V1 };
                                       //  res.send(res_arr);
+
+                                    //  console.log(queryString_U_V1);
+
+                                  //    var queryString_U_v2 = "SELECT BR.branch_id, BR.branch_name, BR.billing_country_id, C.country_name, C.country_code, C.dialing_code,C.public_key,C.private_key,C.secret_key,C.payment_integration_type,C.payment_integration_mode FROM tbl_branch BR, country C WHERE BR.branch_id = '"+rows_U[0].branch_id+"' AND BR.billing_country_id = C.country_id ";                
+                               var queryString_U_v2 = "SELECT  C.country_id as billing_country_id, C.country_name, C.country_code, C.dialing_code,C.public_key,C.private_key,C.secret_key,C.payment_integration_type,C.payment_integration_mode FROM  country C WHERE C.country_id = '"+rows_U[0].country_id+"'  ";                
+
+                                  //   console.log(queryString_U_v2);  
+                                      con.query(queryString_U_v2,function(err_U_v2,rows_U_v2) {                                      
+                                          if(rows_U_v2.length > 0) {
+                                             rows_U[0]['payment_integration_country_id']=rows_U_v2[0].billing_country_id;
+                                             rows_U[0]['payment_integration_type']=rows_U_v2[0].payment_integration_type;
+                                             rows_U[0]['payment_integration_mode']=rows_U_v2[0].payment_integration_mode;
+                                             rows_U[0]['country_code']=rows_U_v2[0].country_code;
+                                             rows_U[0]['country_name']=rows_U_v2[0].country_name;
+                                             rows_U[0]['dialing_code']=rows_U_v2[0].dialing_code;
+                                     
+
+                                             rows_U[0]['public_key']=rows_U_v2[0].public_key;
+                                             rows_U[0]['private_key']=rows_U_v2[0].private_key;
+                                             rows_U[0]['secret_key']=rows_U_v2[0].secret_key;
+                                       
+                                                 
+                                         //    console.log(rows_U);
+                                            res_arr = { status: 1, message: 'Login Successful', data:rows_U };
+                                            res.send(res_arr);
+               
+                                          }else{
+                                            res_arr = { status: 0, message: 'No record found'};
+                                            res.send(res_arr);
+                                          }
+                                        });
+
+
                                     });                            
-                                res_arr = { status: 1, message: 'Login Successful', data:rows_U };
-                                res.send(res_arr);
-                            }else if(rows_U[0].status == '2'){   
+                             
+                            }else if(rows_U[0].status == '2'){ 
                                 res_arr = { status: 0, message: 'Your Account is Deleted.Contact Admin'};
                                 res.send(res_arr);
                             }else{
-                                res_arr = { status: 1, message: 'Your account is inactive. Please contact your Dealer' };
+                                res_arr = { status: 0, message: 'Your account is inactive. Please contact your Dealer' };
                                 res.send(res_arr);
                             }
                         } else {

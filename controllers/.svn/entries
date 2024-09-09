@@ -1,15 +1,15 @@
 10
 
 dir
-63
+143
 https://desktop-eo86olq:444/svn/consumer-app-services/controllers
 https://desktop-eo86olq:444/svn/consumer-app-services
 
 
 
-2023-12-16T08:38:30.389624Z
-63
-kavitha
+2024-08-30T05:18:07.301755Z
+143
+swetha
 has-props
 
 
@@ -26,17 +26,17 @@ has-props
 
 ca7e7567-198e-5045-97ad-fbe49bcb15c3
 
-registration_check.js
+send_command_swapping_station_v2.js
 file
 
 
 
 
-2023-07-22T05:00:22.615696Z
-92e036a337cb750c3e9571a0dff9e887
-2023-11-23T04:02:04.085985Z
-2
-kavitha
+2024-08-05T06:16:00.205177Z
+50a884a11d0a62774df3d0255d7e834e
+2024-07-31T03:49:12.369499Z
+126
+mathavan
 
 
 
@@ -58,52 +58,18 @@ kavitha
 
 
 
-5613
-
-get_city.js
-file
-
-
-
-
-2023-07-26T04:48:20.177686Z
-c7f39e8fe9d1564897de86e903ce570a
-2023-11-23T04:02:04.085985Z
-2
-kavitha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2646
+5231
 
 login.js
 file
+144
 
 
 
-
-2023-12-15T10:12:23.938787Z
-3b40295b16c8d3989f55a9e458903e29
-2023-12-15T11:23:23.645726Z
-53
+2024-08-30T06:31:34.257879Z
+78521098ec11572279b45226d686a183
+2024-08-30T06:31:39.486844Z
+144
 kavitha
 
 
@@ -126,41 +92,7 @@ kavitha
 
 
 
-4012
-
-ss_send_start_command.js
-file
-
-
-
-
-2023-12-08T17:08:50.505310Z
-acb1c86d89e95c220e5e9a424434f1c4
-2023-12-08T17:07:36.482708Z
-46
-karthikeyan
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5469
+6685
 
 add_complaint_consumer.js
 file
@@ -168,11 +100,11 @@ file
 
 
 
-2023-10-03T04:11:51.063124Z
-570617dc538125237ccbd2bff1f24742
-2023-11-23T04:02:04.085985Z
-2
-kavitha
+2024-06-10T08:29:15.993092Z
+6bdb33ac64382ff75c160705eb250a74
+2024-06-10T03:41:27.729342Z
+109
+swetha
 
 
 
@@ -194,18 +126,18 @@ kavitha
 
 
 
-15739
+16329
 
-registration.js
+ss_send_start_command.js
 file
 
 
 
 
-2023-07-22T05:00:22.740399Z
-62b1a42d7a89eeff703c018ab183165f
-2023-11-23T04:02:04.085985Z
-2
+2024-03-13T04:20:27.491673Z
+09bbaaa6853f07cf74eeb99441a643db
+2024-01-31T09:37:17.489583Z
+77
 kavitha
 
 
@@ -228,7 +160,7 @@ kavitha
 
 
 
-6269
+5444
 
 user_account_delete.js
 file
@@ -270,10 +202,10 @@ file
 
 
 
-2023-09-04T04:57:07.728368Z
-010e2d12f55502bf7b26678c64411912
-2023-11-23T04:02:04.085985Z
-2
+2024-03-08T08:26:55.086211Z
+f83295ff9418bbe2f631ad3b51f31aa9
+2024-05-14T05:56:53.301589Z
+83
 kavitha
 
 
@@ -296,7 +228,41 @@ kavitha
 
 
 
-13014
+13501
+
+list_vehicle_trip_details.js
+file
+
+
+
+
+2024-08-16T04:09:19.718453Z
+73cb54e8f5c32b0c9dc05062614fa5b1
+2024-08-12T09:24:44.334554Z
+140
+aakkash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5668
 
 get_transaction_response_event_info.js
 file
@@ -332,17 +298,17 @@ karthikeyan
 
 4162
 
-get_payment_access2.js
+get_state.js
 file
 
 
 
 
-2023-12-09T10:59:01.510574Z
-124bda7f5681370e7b2e54665544a3b1
-2023-12-09T10:32:40.088677Z
-48
-sathish
+2023-07-26T04:43:22.528290Z
+0c67fd8b32ac3ee2b358810924a83343
+2023-11-23T04:02:04.085985Z
+2
+kavitha
 
 
 
@@ -364,7 +330,7 @@ sathish
 
 
 
-4541
+2403
 
 get_apk_version.js
 file
@@ -400,17 +366,17 @@ kavitha
 
 1760
 
-get_state.js
+consumer_wallet_create_order.js
 file
 
 
 
 
-2023-07-26T04:43:22.528290Z
-0c67fd8b32ac3ee2b358810924a83343
-2023-11-23T04:02:04.085985Z
-2
-kavitha
+2024-08-30T05:39:39.615157Z
+1e402fa18ca818776c9897492267fc0a
+2024-08-30T05:18:07.301755Z
+143
+swetha
 
 
 
@@ -432,109 +398,7 @@ kavitha
 
 
 
-2403
-
-get_vehicle_details2_consumer.js
-file
-
-
-
-
-2023-09-16T08:46:27.414153Z
-11a86ccaf4b9f4b9e214196c95aa5402
-2023-11-23T04:02:04.085985Z
-2
-kavitha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8525
-
-get_cabin_details.js
-file
-
-
-
-
-2023-12-01T05:47:10.415883Z
-18290e2db84c988797ae9efea1ebfbf1
-2023-12-01T05:46:50.210581Z
-31
-karthikeyan
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7677
-
-list_ss_log.js
-file
-66
-
-
-
-2023-12-16T09:12:42.769464Z
-18c692765ca4787600d115a631503dce
-2023-12-20T04:33:18.465051Z
-66
-kavitha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3727
+8304
 
 get_user_details.js
 file
@@ -569,6 +433,528 @@ kavitha
 
 
 1908
+
+consumer_wallet_verify_order.js
+file
+
+
+
+
+2024-08-30T05:39:39.617662Z
+fa89640af7a1360a57879110f9353ef2
+2024-08-30T05:18:07.301755Z
+143
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3592
+
+consumer_wallet_create_payment.js
+file
+
+
+
+
+2024-08-30T05:39:39.611174Z
+67d781be85773b2824ec90b9302b8e54
+2024-08-30T05:18:07.301755Z
+143
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5295
+
+list_ss_log_v2.js
+file
+
+
+
+
+2024-08-06T04:00:23.498751Z
+2a0cba37b898144858ef98221b1d0f2f
+2024-08-06T03:56:58.217384Z
+135
+karthikeyan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5172
+
+list_service_details.js
+file
+
+
+
+
+2023-08-07T05:40:40.064139Z
+2f172cec7e7ecf0dd4b877077dc3226e
+2023-11-23T04:02:04.085985Z
+2
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3215
+
+get_swapping_station_max_soc.js
+file
+
+
+
+
+2024-07-08T07:16:38.346749Z
+93de65102ddb63ff4e93ed5b8fc8f012
+2024-07-08T06:47:48.231733Z
+118
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2518
+
+get_swapping_station_details_v2.js
+file
+
+
+
+
+2024-08-05T06:16:00.257145Z
+36068765da87db24c9f2e8873673c621
+2024-07-08T07:14:09.500534Z
+119
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3903
+
+swapping_station_qr_scan_v2.js
+file
+
+
+
+
+2024-08-05T06:16:00.365427Z
+2980637058e674df45d8b48956645ff7
+2024-07-24T07:34:58.925054Z
+123
+aakkash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5219
+
+get_city.js
+file
+
+
+
+
+2023-07-26T04:48:20.177686Z
+c7f39e8fe9d1564897de86e903ce570a
+2023-11-23T04:02:04.085985Z
+2
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2646
+
+registration_check.js
+file
+
+
+
+
+2024-08-05T09:42:43.935950Z
+636aa2aa29d18e9963cd6ca82dc539cd
+2024-08-05T09:43:37.455033Z
+134
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5650
+
+registration.js
+file
+
+
+
+
+2024-08-05T09:42:43.988515Z
+5fc8b399369081f7e3b6485cd32052ee
+2024-08-05T09:43:37.455033Z
+134
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6695
+
+list_ss_battery_soc.js
+file
+
+
+
+
+2024-01-08T03:57:59.775560Z
+1e3ee77ee1b2693df3d3e23559bbbd64
+2024-01-08T03:59:38.188896Z
+72
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3789
+
+get_payment_access2.js
+file
+
+
+
+
+2023-12-09T10:59:01.510574Z
+124bda7f5681370e7b2e54665544a3b1
+2023-12-09T10:32:40.088677Z
+48
+sathish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4541
+
+get_vehicle_details2_consumer.js
+file
+
+
+
+
+2024-05-30T08:44:54.014660Z
+0d3f8668e41b5d2ec2b23116483f1ec5
+2024-05-30T08:44:27.956360Z
+87
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10102
+
+get_cabin_details.js
+file
+
+
+
+
+2024-03-15T03:56:34.029696Z
+7d74fd9369efdfc72bfbf2aa7993bd91
+2024-05-14T05:56:53.301589Z
+83
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7716
+
+ss_send_start_command_v2.js
+file
+
+
+
+
+2024-08-16T04:09:35.791923Z
+f99dfd33ad4ee1b04db104888eb964d7
+2024-08-09T08:48:55.058376Z
+139
+karthikeyan
+
+list_ss_log.js
+file
+
+
+
+
+2024-02-06T08:36:03.816136Z
+110bbf43a5c3b8ccd990e9ec7f916978
+2024-02-06T08:40:08.395340Z
+78
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4898
 
 change_password_consumer.js
 file
@@ -610,10 +996,10 @@ file
 
 
 
-2023-09-29T10:02:13.643282Z
-0fa785eb26322d157abe3f5aab758c61
-2023-11-23T04:02:04.085985Z
-2
+2024-01-10T10:58:49.797575Z
+9ed93000fc004e8ab071d4851829c293
+2024-01-12T08:40:45.718991Z
+76
 kavitha
 
 
@@ -636,7 +1022,7 @@ kavitha
 
 
 
-6472
+6470
 
 user_wallet_check.js
 file
@@ -644,11 +1030,11 @@ file
 
 
 
-2023-12-04T11:56:57.381607Z
-fe224942973b66430b2d52e5546059b9
-2023-12-04T11:56:24.660830Z
-40
-karthikeyan
+2024-08-30T05:39:39.620659Z
+4e36b953e7dee8ba025740f17d5988f7
+2024-08-30T05:18:07.301755Z
+143
+swetha
 
 
 
@@ -670,7 +1056,7 @@ karthikeyan
 
 
 
-5752
+5753
 
 list_swapping_station.js
 file
@@ -678,10 +1064,10 @@ file
 
 
 
-2023-12-08T07:17:37.858546Z
-0091ff7dee230eb8a011bfccedb7f7cc
-2023-12-08T07:18:51.244629Z
-42
+2024-05-09T06:54:08.022364Z
+51c20737f39d3cec475f0a86a9888c07
+2024-05-14T05:56:53.301589Z
+83
 kavitha
 
 
@@ -704,7 +1090,7 @@ kavitha
 
 
 
-3593
+3935
 
 list_complaint_details.js
 file
@@ -742,11 +1128,11 @@ kavitha
 
 get_user_wallet_details.js
 file
-67
 
 
 
-2023-12-20T04:37:49.914043Z
+
+2024-08-05T06:16:07.688857Z
 1dc35040ebfd3712377b2d786f561836
 2023-12-20T04:39:11.614913Z
 67
@@ -808,6 +1194,40 @@ kavitha
 
 3056
 
+consumer_wallet_verify_order_kkiapay.js
+file
+
+
+
+
+2024-08-30T05:39:39.614159Z
+91b22bf4a2efbcbb549037fb223455e5
+2024-08-30T05:18:07.301755Z
+143
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8653
+
 get_payment_access.js
 file
 
@@ -848,11 +1268,11 @@ file
 
 
 
-2023-12-15T09:52:54.744458Z
-9de8059e0e96d7306095ef72b9e34ab3
-2023-12-15T05:48:01.727845Z
-52
-sathish
+2024-03-20T05:40:31.036921Z
+87367b8b1cb9121ebcf789814067718b
+2024-01-31T09:37:17.489583Z
+77
+kavitha
 
 
 
@@ -874,7 +1294,41 @@ sathish
 
 
 
-9935
+10575
+
+swapping_station_qr_scan.js
+file
+
+
+
+
+2024-05-10T06:03:50.871841Z
+cf091691dc39111ff7ea2235da6aaf7c
+2024-05-14T05:56:53.301589Z
+83
+kavitha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9607
 
 index.html
 file
@@ -910,50 +1364,16 @@ kavitha
 
 13
 
-swapping_station_qr_scan.js
+send_command_swapping_station.js
 file
 
 
 
 
-2023-12-16T07:34:24.365434Z
-ef43bb307db2e52ff77010413efb8884
-2023-12-16T06:58:56.451266Z
-59
-sathish
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9285
-
-list_service_details.js
-file
-
-
-
-
-2023-08-07T05:40:40.064139Z
-2f172cec7e7ecf0dd4b877077dc3226e
-2023-11-23T04:02:04.085985Z
-2
+2024-01-09T09:56:56.383123Z
+e6d20cc4e8b844c1455dca9901be7d33
+2024-01-09T10:40:38.957405Z
+75
 kavitha
 
 
@@ -976,7 +1396,7 @@ kavitha
 
 
 
-3215
+4714
 
 update_consumer_feedback.js
 file
@@ -1045,4 +1465,38 @@ karthikeyan
 
 
 4162
+
+list_consumer_wallet_transaction.js
+file
+
+
+
+
+2024-08-30T05:39:39.619661Z
+c83660ad1e3a864d35a6464a2ddb3ecc
+2024-08-30T05:18:07.301755Z
+143
+swetha
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3350
 

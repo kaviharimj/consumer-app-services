@@ -46,6 +46,23 @@ var get_user_wallet_details=require('./controllers/get_user_wallet_details');
 var consumer_wallet_create_order= require('./controllers/consumer_wallet_create_order');
 var consumer_wallet_create_payment= require('./controllers/consumer_wallet_create_payment');
 var consumer_wallet_verify_order= require('./controllers/consumer_wallet_verify_order');
+var list_consumer_wallet_transaction= require('./controllers/list_consumer_wallet_transaction');
+var list_ss_battery_soc = require('./controllers/list_ss_battery_soc');
+var send_command_swapping_station = require('./controllers/send_command_swapping_station');
+
+//lisha
+var list_vehicle_trip_details = require('./controllers/list_vehicle_trip_details');
+var get_swapping_station_max_soc = require('./controllers/get_swapping_station_max_soc');
+
+   //swapping station v2
+
+   var swapping_station_qr_scan_v2 = require('./controllers/swapping_station_qr_scan_v2');
+   var ss_send_start_command_v2 = require('./controllers/ss_send_start_command_v2');
+   var get_swapping_station_details_v2 = require('./controllers/get_swapping_station_details_v2');
+   var list_ss_log_v2 = require('./controllers/list_ss_log_v2');
+   var send_command_swapping_station_v2 = require('./controllers/send_command_swapping_station_v2');
+//kiapay
+var consumer_wallet_verify_order_kkiapay= require('./controllers/consumer_wallet_verify_order_kkiapay');
 
 ////////////////////////////////////////////////////
 
@@ -88,11 +105,25 @@ app.use(bodyParser.json(), function (req, res, next) {
     app.post('/consumer_wallet_create_order',consumer_wallet_create_order.consumer_wallet_create_order); 
     app.post('/consumer_wallet_create_payment',consumer_wallet_create_payment.consumer_wallet_create_payment); 
     app.post('/consumer_wallet_verify_order',consumer_wallet_verify_order.consumer_wallet_verify_order); 
+    app.post('/list_consumer_wallet_transaction',list_consumer_wallet_transaction.list_consumer_wallet_transaction); 
+	app.post('/list_ss_battery_soc',list_ss_battery_soc.list_ss_battery_soc); 
+  app.post('/send_command_swapping_station',send_command_swapping_station.send_command_swapping_station); 
 
-    
+  app.post('/consumer_wallet_verify_order_kkiapay',consumer_wallet_verify_order_kkiapay.consumer_wallet_verify_order_kkiapay); 
 
+
+  
     ///////////////////////////////////////////////////
+    //lisha
+    app.post('/list_vehicle_trip_details',list_vehicle_trip_details.list_vehicle_trip_details); 
+    app.post('/get_swapping_station_max_soc',get_swapping_station_max_soc.get_swapping_station_max_soc);
 
+       //swapping station v2
+    app.post('/swapping_station_qr_scan_v2',swapping_station_qr_scan_v2.swapping_station_qr_scan_v2); 
+    app.post('/ss_send_start_command_v2',ss_send_start_command_v2.ss_send_start_command_v2); 
+    app.post('/get_swapping_station_details_v2',get_swapping_station_details_v2.get_swapping_station_details_v2); 
+    app.post('/list_ss_log_v2',list_ss_log_v2.list_ss_log_v2); 
+    app.post('/send_command_swapping_station_v2',send_command_swapping_station_v2.send_command_swapping_station_v2);
   // app.post('/add_complaint_consumer', add_complaint_consumer.upload.array('files', 3),add_complaint_consumer.uploadMultipleImage);
 
   

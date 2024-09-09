@@ -36,12 +36,12 @@ module.exports.ss_send_start_command =
 				con.query(queryString_U, function (err_U, rows_U) {
 					if (rows_U.length > 0) {
 						if(rows_U[0].status == 1) {
-							if(rows_U[0].wallet_amount >= '250') {		//Allow to proceed if consumer has sufficient balance in his wallet
+							if(rows_U[0].wallet_amount >= 52) {		//Allow to proceed if consumer has sufficient balance in his wallet
 								var queryString_SS = "SELECT id, swapping_station_number, station_name, battery_mode_status FROM swapping_station WHERE 1=1 AND imei = '"+imei+"' limit 0,1";
 								con.query(queryString_SS, function (err_SS, rows_SS) {
 									if (rows_SS.length > 0) {
 										//Check for maximum soc level battery to send its cabin id over MQTT
-										var queryString_SSB = "SELECT cabin_id FROM ss_battery WHERE 1=1 AND company_id = '"+rows_A[0].company_id+"' AND branch_id = '"+rows_A[0].branch_id+"' AND imei = '"+imei+"' AND battery_soh >= '80' AND battery_temperature < '50' AND a1_mosfet_temperature < '50' AND battery_failure_value = '0-0-0' ORDER BY battery_soc DESC LIMIT 0,1";
+										var queryString_SSB = "SELECT cabin_id FROM ss_battery WHERE 1=1 AND company_id = '"+rows_A[0].company_id+"' AND imei = '"+imei+"' AND battery_soc > 0 AND battery_soh >= '80' AND battery_temperature < '50' AND a1_mosfet_temperature < '50' AND battery_failure_value = '0-0-0' ORDER BY battery_soc DESC LIMIT 0,1";
 											con.query(queryString_SSB, function (err_SSB, rows_SSB) {
 											if (rows_SSB.length > 0) {
 												var serverUrl = 'tcp://3.6.49.44:8883';

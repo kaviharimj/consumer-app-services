@@ -50,7 +50,8 @@ if(user_id=='') {
         if(rows_A.length > 0){
             var queryString_U = "SELECT company_id,branch_id,name,status FROM users WHERE user_id = '"+user_id+"' and company_id= '"+rows_A[0].company_id+"'";
             con.query(queryString_U,function(err_U,rows_U) {
-              if(rows_U.length > 0) {     
+              if(rows_U.length > 0) {    
+                if(rows_U[0].status == 1){ 
                var  key_secret = 'bPLvadf1eijZoq5Q85MW818j';                                             
                 let hmac = crypto.createHmac('sha256', key_secret);     
                 hmac.update(razorpay_order_id + "|" + razorpay_payment_id); 	
@@ -63,6 +64,10 @@ if(user_id=='') {
                     res.send(res_arr);
                 }
               }else {
+                res_arr = { status: 0, message: 'Your account is inactive. Contact Admin' };
+                res.send(res_arr);
+            }
+            }else {
                 res_arr = { status: 0, message: 'User not exists' };
                 res.send(res_arr);
              }  
